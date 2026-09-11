@@ -92,14 +92,14 @@ void Point::Set_Point(int x1, int y1)
 
 Line::Line()
 {
-    Orign_Point = new Point;
+    Orign_Point = new Point; //指针申请了堆内存之后就不要再指向别处，会造成内存泄漏
     Length = 10;
     Angle = 30;
 }
 
 Line::~Line()
 {
-    delete Orign_Point;
+    delete Orign_Point; //清理指针内存
 }
 
 void Line::Line_Get_Point(const Point& po, int& x1, int& y1)

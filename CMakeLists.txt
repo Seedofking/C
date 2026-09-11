@@ -27,6 +27,7 @@ add_executable(Class_1 ${Class_1_Files})
 add_executable(Function_Test Function_Test_App.cpp main.cpp)    #多文件
 add_executable(Class_2 Class_2.cpp)   #单文件
 add_executable(Class_3 Class_3.cpp)
+add_executable(Class_4 Class_4.cpp)
 add_executable(Class_Test CLass_Test.cpp)
 add_executable(First_Time First_Time.cpp)
 add_executable(IO_Test IO_Test.cpp)
@@ -37,15 +38,15 @@ add_executable(Reference Reference.cpp)
 
 #target_include_directories(Class_1 PRIVATE ${PROJECT_SOURCE_DIR})
 
-set (A ON) #定义A为ON，ON属于关键字
-if(A)   #A是ON，if会被判定为true
+set(A ON) #定义A为ON，ON属于关键字
+if (A)   #A是ON，if会被判定为true
     #message可以将信息打印出来，点击重新加载cmake项目时可在cmake日志查看，是--开头的，比如-- A:D:/3-Clion/C++/Class_1
     #message(STATUS "   ")可显示冒号内的内容
     #$(   )的作用是查看其内容的值
     message(STATUS "A:${PROJECT_NAME}") #显示工程的名称
     message(STATUS "A:${PROJECT_SOURCE_DIR}")   #显示工程的文件夹源文件目录，即包含CMakeLists.txt文件的目录
     message(STATUS "A:${PROJECT_BINARY_DIR}")   #显示当前CMake运行的二进制文件目录
-endif()
+endif ()
 
 
 #[[工具链设置：
