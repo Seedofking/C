@@ -1,4 +1,5 @@
-## Git
+# ***Git***
+
 ### 初始化：
 设置Git用户名：
 `git config --global user.name "用户名"`
@@ -53,3 +54,31 @@
 
 #### 第三步：提交代码
 `git push`
+
+##### 如果出现 The upstream branch of your current branch does not much:(本地分支名与上游分支名不匹配)
+###### 临时方案：把本地当前 HEAD（也就是本地 master 分支）推送到远程仓库的main分支
+`git push origin HEAD:main`,但是执行该命令不会绑定上游分支，下次push还是要写完整命令
+###### 绑定上游方案：
+`git push -u origin HEAD:main`,使用-u绑定上游后下次就可以直接git push
+##### 修改本地分支名方案：
+###### 第一步：将本地master分支名重命名为main
+`git branch -m master main`
+###### 第二步：将本地main分支绑定远程origin main并推送
+`git push -u origin main`
+
+#### 通用字符解释：
+#### -u
+##### 绑定上游分支：
+`-u`等价于`--set-upstream`,用于git push
+upstream = 远程仓库上对应的那条分支
+`git push -u origin master:main`执行完之后就会把下游分支branch绑定上游分支main，下次就不用再写完整命令
+本地与github同名就写`git push -u origin main`
+以后可以直接写`git push`推送，`git pull`拉取
+#### -m
+##### 1.提交信息：
+`-m`等价于`--message`
+`-m "备注"`可以直接在命令行写本次提交的说明文字，跳过vim编辑器
+`git commit -m "备注"`
+##### 2.移动/重命名分支：
+此时`-m`等价于`--move`,作用是重命名分支
+`git branch -m master main`将旧分支名字master重命名为新分支名字main
