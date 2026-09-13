@@ -3,4 +3,4 @@ project(Hello_World)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(Hello_World main.cpp)
+add_executable(Hello_World Hello_World.cpp)
