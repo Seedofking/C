@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.28)#指定CMake可用的最低版本，比该版本低会报错
 
-project(BigBuild)#指定要构建项目的名字，随便写
+project(C_Main)#指定要构建项目的名字，随便写
 
 set(CMAKE_CXX_STANDARD 20)#指定C++语言的标准版本
 
@@ -28,6 +28,7 @@ add_executable(Function_Test Function_Test_App.cpp main.cpp)    #多文件
 add_executable(Class_2 Class_2.cpp)   #单文件
 add_executable(Class_3 Class_3.cpp)
 add_executable(Class_4 Class_4.cpp)
+add_executable(Class_5 Class_5.cpp)
 add_executable(Class_Test CLass_Test.cpp)
 add_executable(First_Time First_Time.cpp)
 add_executable(IO_Test IO_Test.cpp)
