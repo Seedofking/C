@@ -137,7 +137,7 @@ public:
 
 class Sab : public Pa, public Pb
 {
-    //Pa和Pb都有相同的a, b, c变量，因此子类也会存有两份来自不同父类的a, b, c变量，需要分别访问
+    //Pa和Pb都有相同的a, b, c变量，因此子类也会存有两份来自不同父类的a, b, c变量，这些都是不同的变量，需要分别访问
 public:
     int a;
 
