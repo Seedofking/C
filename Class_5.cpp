@@ -179,7 +179,7 @@ int main()
 
     sa1.Show();
     cout << "sb1.Show() failed for protected" << endl;
-    sab1.Show();
+    sab1.Show(); //默认调用重写函数，也可以用::指定调用父类的
     sab1.Pa::Show();
     sab1.Pb::Show();
 
