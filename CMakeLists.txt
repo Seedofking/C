@@ -35,7 +35,7 @@ add_executable(IO_Test IO_Test.cpp)
 add_executable(Memory_Test Memory_Test.cpp)
 add_executable(Pointer_Test Pointer_Test.cpp)
 add_executable(Reference Reference.cpp)
-#新增编译对象的话一个个写即可
+#新增编译对象的话一个个添加即可
 
 #target_include_directories(Class_1 PRIVATE ${PROJECT_SOURCE_DIR})
 
