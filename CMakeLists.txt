@@ -29,6 +29,7 @@ add_executable(Class_2 Class_2.cpp)   #单文件
 add_executable(Class_3 Class_3.cpp)
 add_executable(Class_4 Class_4.cpp)
 add_executable(Class_5 Class_5.cpp)
+add_executable(Class_6 Class_6.cpp)
 add_executable(Class_Test CLass_Test.cpp)
 add_executable(First_Time First_Time.cpp)
 add_executable(IO_Test IO_Test.cpp)
