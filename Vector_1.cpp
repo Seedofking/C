@@ -94,6 +94,7 @@ public:
     friend ostream& operator<<(ostream& os, const Person& p);
 };
 
+// Person的 << 输出流运算符重载
 ostream& operator<<(ostream& os, const Person& p)
 {
     os << "name: " << p.name << ", age: " << p.age;
@@ -105,9 +106,37 @@ void Print_Vector_Person(vector<Person>& v)
 {
     for (vector<Person>::iterator it = v.begin(); it != v.end(); it++)
     {
-        cout << *it << endl;
+        cout << *it << endl; //要弄明白it指的是谁，这里it指的是Person，*it 就是Person，而 cout << Person 触发了输出流重载
+        //or    cout << it->name << endl;
+        //      cout << it->age << endl;
     }
 }
+
+//通过Person*的地址遍历输出vector中的Person
+void Print_Vector_Person1(vector<Person*>& v)
+{
+    for (vector<Person*>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        //这里it指向Person*，所以*it就是Person*指针，Person*可以使用->来访问里面的变量，所以这里是(*it)->
+        cout << "name: " << (*it)->name;
+        cout << ", age: " << (*it)->age << endl;
+    }
+}
+
+//遍历输出vector嵌套vector
+void Print_Vector_Vector(vector<vector<int>>& v)
+{
+    for (vector<vector<int>>::iterator it = v.begin(); it != v.end(); it++)
+    {
+        //此时*it指向vector<int> 所以(*it)就是vector，作为传入下一个循环的处理的vector
+        for (vector<int>::iterator vit = (*it).begin(); vit != (*it).end(); vit++)
+        {
+            cout << *vit << endl;
+        }
+        cout << "next vector" << endl;
+    }
+}
+
 
 int main()
 {
@@ -118,6 +147,7 @@ int main()
     v1.push_back(30);
     Print_Vector1(v1);
 
+    //vector存放对象
     vector<Person> v2;
     Person p1("AA", 5);
     Person p2("BB", 7);
@@ -127,8 +157,36 @@ int main()
     v2.push_back(p3);
     Print_Vector_Person(v2);
 
+    //vector存放对象指针
+    cout << "------------" << endl;
+    vector<Person*> v3;
+    Person p4("DD", 9);
+    Person p5("EE", 10);
+    Person p6("FF", 11);
+    v3.push_back(&p4);
+    v3.push_back(&p5);
+    v3.push_back(&p6); // for (vector<int>::iterator it = v2.begin(); it != v2.end(); it++)
+    Print_Vector_Person1(v3);
 
-    // for (vector<int>::iterator it = v2.begin(); it != v2.end(); it++)
+    vector<int> v4;
+    v4.push_back(40);
+    v4.push_back(50);
+    v4.push_back(60);
+    Print_Vector2(v4);
+
+    vector<int> v5;
+    v5.push_back(70);
+    v5.push_back(80);
+    v5.push_back(90);
+    Print_Vector3(v5);
+
+    cout << "------------" << endl;
+
+    vector<vector<int>> vv;
+    vv.push_back(v1);
+    vv.push_back(v4);
+    vv.push_back(v5);
+    Print_Vector_Vector(vv);
 
     system("pause");
     return 0;
