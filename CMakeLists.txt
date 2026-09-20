@@ -38,6 +38,7 @@ add_executable(Reload Reload.cpp)
 add_executable(Memory_Test Memory_Test.cpp)
 add_executable(Pointer_Test Pointer_Test.cpp)
 add_executable(Reference Reference.cpp)
+add_executable(Vector_1 Vector_1.cpp)
 #新增编译对象的话一个个添加即可
 
 #target_include_directories(Class_1 PRIVATE ${PROJECT_SOURCE_DIR})
