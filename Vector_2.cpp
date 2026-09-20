@@ -8,8 +8,9 @@ using namespace std;
  *构造：
  *  1.vector<T> v;                  vector<int> v//采用模板实现类实现，默认构造函数
  *  2.vector(v.begin(), v.end())    vector<int> v1(v2.begin(), v2.end());   //将v2从[begin(), end())区间中的赋值拷给v1
- *  3.vector(n, elem)               vector<int> v1(10, 20)   //构造函数将 n(10)个 elem(20)添加给自己
- *  4.vector(const vector &v)       vector<int> v1(const vector &v2);  //拷贝构造函数
+ *  3.vector(n)                     vector<int> v1(1000)    //构造函数创建1000个0作为初始元素
+ *  4.vector(n, elem)               vector<int> v1(10, 20)   //构造函数将 n(10)个 elem(20)创建给自己
+ *  5.vector(const vector &v)       vector<int> v1(const vector &v2);  //拷贝构造函数
  *
  * 赋值：
  *  1. v1 = v2; 使用vector库自带的重载等号赋值
