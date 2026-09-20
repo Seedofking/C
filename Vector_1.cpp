@@ -49,7 +49,7 @@ void Print_Vector1(vector<int>& v) //如果传入参数改成const vector<int> &
 {
     //下面的迭代器就要改成for(vector<int>::const_iterator it; .... 是只读的
     //for遍历输出
-    for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
+    for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) //++it在for
     {
         cout << *it << endl;
     }

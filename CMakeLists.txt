@@ -40,6 +40,7 @@ add_executable(Pointer_Test Pointer_Test.cpp)
 add_executable(Reference Reference.cpp)
 add_executable(Vector_1 Vector_1.cpp)
 add_executable(Vector_2 Vector_2.cpp)
+add_executable(Vector_3 Vector_3.cpp)
 #新增编译对象的话一个个添加即可
 
 #target_include_directories(Class_1 PRIVATE ${PROJECT_SOURCE_DIR})
