@@ -79,6 +79,15 @@ void Print_Vector3(vector<int>& v)
     for_each(v.begin(), v.end(), One_Print);
 }
 
+//范围for循环
+void Print_Vector4(vector<int>& v)
+{
+    for (auto x : v)
+    {
+        cout << x << endl;
+    }
+}
+
 class Person
 {
 public:
@@ -145,7 +154,7 @@ int main()
     v1.push_back(10); //push_back可以把数据插在最后面
     v1.push_back(20);
     v1.push_back(30);
-    Print_Vector1(v1);
+    Print_Vector4(v1);
 
     //vector存放对象
     vector<Person> v2;
