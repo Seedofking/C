@@ -12,7 +12,7 @@ using namespace std;
 void Multi_Input(vector<int>& v)
 {
     string line; //line一会用于存储从cin得到的一整行数据
-    cout << "请输入若干数字，须使用空格分隔，按回车提交" << endl;
+    cout << "请输入若干数字，须使用空格分隔，按回车提交: " << endl;
     //cin.ignore();一定要在前面有cin才可以加，读不到\n都会出问题
     //cin.ignore(numeric_limits<streamsize>::max(), '\n');这个东西的问题是，如果前面没有换行可供读取，就永远不会结束程序
     //cin.ignore();   //这个东西的问题是，如果前面没有换行可供丢弃，就会丢弃数据
