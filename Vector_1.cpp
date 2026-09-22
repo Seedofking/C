@@ -82,7 +82,7 @@ void Print_Vector3(vector<int>& v)
 //范围for循环
 void Print_Vector4(vector<int>& v)
 {
-    for (auto x : v)
+    for (auto x : v) //要求类型必须在for里面定义，不可以事先 int x
     {
         cout << x << endl;
     }
