@@ -16,7 +16,7 @@ void Multi_Input(vector<int>& v)
     //cin.ignore();一定要在前面有cin才可以加，读不到\n都会出问题
     //cin.ignore(numeric_limits<streamsize>::max(), '\n');这个东西的问题是，如果前面没有换行可供读取，就永远不会结束程序
     //cin.ignore();   //这个东西的问题是，如果前面没有换行可供丢弃，就会丢弃数据
-    //cin.ignore()可以忽略掉前面cin << a;等剩下的一个\n, 但是只能忽略一个，如果回车前还有空格等就会失效
+    //cin.ignore()可以忽略掉前面cin << a;等剩下的一个\n, 但是只能忽略一个，如果回车前还有空格等就会失效,用这个Multi_Input是不会剩一个\n的
     //cin.ignore(numeric_limits<streamsize>::max(), '\n'); 可以清除回车之前的所有东西
     getline(cin, line); //getline可以实现从cin中拿到一整行的输入数据，放在line里
     stringstream ss(line); //stringstream ss(line) 可以从line中构造输入流数据给ss， 并且可以从中分割数据
