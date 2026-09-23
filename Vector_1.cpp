@@ -51,8 +51,9 @@ void Print_Vector1(vector<int>& v) //如果传入参数改成const vector<int> &
     //for遍历输出
     for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) //++it在for
     {
-        cout << *it << endl;
+        cout << *it << " ";
     }
+    cout << endl;
 }
 
 void Print_Vector2(const vector<int>& v)
@@ -62,21 +63,23 @@ void Print_Vector2(const vector<int>& v)
     vector<int>::const_iterator pEnd = v.end();
     while (pBegin != pEnd)
     {
-        cout << *pBegin << endl;
+        cout << *pBegin << " ";
         pBegin++;
     }
+    cout << endl;
 }
 
 //为for_each准备的输出函数
 void One_Print(int a)
 {
-    cout << a << endl;
+    cout << a << " ";
 }
 
 //for_each遍历
 void Print_Vector3(vector<int>& v)
 {
     for_each(v.begin(), v.end(), One_Print);
+    cout << endl;
 }
 
 //范围for循环
@@ -84,8 +87,9 @@ void Print_Vector4(vector<int>& v)
 {
     for (auto x : v) //要求类型必须在for里面定义，不可以事先 int x
     {
-        cout << x << endl;
+        cout << x << " ";
     }
+    cout << endl;
 }
 
 class Person
@@ -115,10 +119,11 @@ void Print_Vector_Person(vector<Person>& v)
 {
     for (vector<Person>::iterator it = v.begin(); it != v.end(); it++)
     {
-        cout << *it << endl; //要弄明白it指的是谁，这里it指的是Person，*it 就是Person，而 cout << Person 触发了输出流重载
+        cout << *it << " "; //要弄明白it指的是谁，这里it指的是Person，*it 就是Person，而 cout << Person 触发了输出流重载
         //or    cout << it->name << endl;
         //      cout << it->age << endl;
     }
+    cout << endl;
 }
 
 //通过Person*的地址遍历输出vector中的Person
@@ -135,15 +140,32 @@ void Print_Vector_Person1(vector<Person*>& v)
 //遍历输出vector嵌套vector
 void Print_Vector_Vector(vector<vector<int>>& v)
 {
+    cout << "{ ";
     for (vector<vector<int>>::iterator it = v.begin(); it != v.end(); it++)
     {
         //此时*it指向vector<int> 所以(*it)就是vector，作为传入下一个循环的处理的vector
+        cout << "{";
         for (vector<int>::iterator vit = (*it).begin(); vit != (*it).end(); vit++)
         {
-            cout << *vit << endl;
+            if (vit != (*it).end() - 1)
+            {
+                cout << *vit << ", ";
+            }
+            else if (vit == (*it).end() - 1)
+            {
+                cout << *vit;
+            }
         }
-        cout << "next vector" << endl;
+        if (it != v.end() - 1)
+        {
+            cout << "}, ";
+        }
+        else if (it == v.end() - 1)
+        {
+            cout << "}";
+        }
     }
+    cout << " }" << endl;
 }
 
 
