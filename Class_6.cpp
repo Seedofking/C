@@ -15,7 +15,7 @@ using namespace std;
  *1.特点：运行期绑定，需要使用虚表查找，有微小开销，父类先于子类构建，后于子类销毁，父类通过虚函数virtual才可以实现调用子类函数
  *2.条件：
  *  继承：子类需要公有继承父类   class Son : public Pare;
- *  父类指针/引用：指向子类    Pare *p = new Son; / Son s; Pare* p = &s  or  Pare& ref = s;
+ *  父类指针/引用：指向子类    Pare *p = new Son; 指针使用->调用/ Son s; Pare* p = &s  or  Pare& ref = s; 引用使用.调用
  *  虚函数virtual：父类同名函数需要加virtual，子类需要重写该函数
  *      Pare{ virtual void Fun(){A} }   Son{ void Fun(){B} }
  *3.调用：p-> Fun(); //如果父类函数前写了virtual, 就会调用子类内重写的函数, 如果父类没写virtual，则会调用父类的
