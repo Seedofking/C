@@ -2,17 +2,18 @@
 using namespace std;
 
 #define A_Week 7
-#define SHORT_BIT "2bit"
-#define INT_BIT "4bit"
-#define LONG_BIT "4bit_except_Linux(64)_8bit"
-#define LONG_LONG_BIT "8bit"
-#define FLOAT_BIT "4bit"
-#define DOUBLE_BIT "8bit"
+#define CHAR_BITT "1byte"
+#define SHORT_BIT "2byte"
+#define INT_BIT "4byte"
+#define LONG_BIT "4byte_except_Linux(64)_8bbyte"
+#define LONG_LONG_BIT "8byte"
+#define FLOAT_BIT "4byte"
+#define DOUBLE_BIT "8byte"
 
 int main()
 {
+    char ch = 'a';
     int i;
-
     int a = 3;
     const int b = 6;
     float fl = 3.1415926;
@@ -36,19 +37,21 @@ int main()
 
 
     std::string（C++ 标准库封装类）
-    是一个完整类对象，不是单纯地址；
+    是一个完整类对象，不是单纯地址, 既包含了字符串部分，也封装了其处理方法
     内部自动管理三块数据：字符数组、字符串长度、容量；
     内存自动分配释放，不用手动处理 \0、不用strcpy。
    */
-    const char *SIZENAME[6];
-    SIZENAME[0] = "SHORT_BIT        Max: +-2^15-1   32767   3.2x10^4";
-    SIZENAME[1] = "INT_BIT          Max: +-2^31-1           2.1x10^9";
-    SIZENAME[2] = "LONG_BIT         Max: +-2^31-1           2.1x10^9";
-    SIZENAME[3] = "LONG_LONG_BIT    Max: +-2^63-1           9.2x10^18";
-    SIZENAME[4] = "FLOAT_BIT        Actu: +-1.6x10^7        Max: 3.4x10^38";
-    SIZENAME[5] = "DOUBLE_BIT       Actu: +-2^53            Max: 1.7x10^308";
+    const char* SIZENAME[8];
+    SIZENAME[0] = "CHAR_BYTE         Max: +-2^7 -1   127     1.2x10^2";
+    SIZENAME[1] = "SHORT_BYTE        Max: +-2^15-1   32767   3.2x10^4";
+    SIZENAME[2] = "INT_BYTE          Max: +-2^31-1           2.1x10^9";
+    SIZENAME[3] = "LONG_BYTE         Max: +-2^31-1           2.1x10^9";
+    SIZENAME[4] = "LONG_LONG_BYTE    Max: +-2^63-1           9.2x10^18";
+    SIZENAME[5] = "FLOAT_BYTE        Actu: +-1.6x10^7        Max: 3.4x10^38";
+    SIZENAME[6] = "DOUBLE_BYTE       Actu: +-2^53            Max: 1.7x10^308";
+    SIZENAME[7] = "BYTE              8bit";
 
-    char SIZE[][100] = {SHORT_BIT, INT_BIT, LONG_BIT, LONG_LONG_BIT, FLOAT_BIT, DOUBLE_BIT};
+    char SIZE[][100] = {CHAR_BITT, SHORT_BIT, INT_BIT, LONG_BIT, LONG_LONG_BIT, FLOAT_BIT, DOUBLE_BIT};
 
     cout << "HelloWorld & " << a << " & " << b << endl;
     cout << "一个星期有 " << A_Week << " 天" << endl;
@@ -56,7 +59,7 @@ int main()
     cout << "3e2 = " << "3 * 10 ^ 2 = " << db << endl;
     cout << "3e-2 = " << "3 * 10 ^ - 2 = " << minus_db << endl;
 
-    for (i = 0; i < (int)(sizeof(SIZENAME) / sizeof(char *)); i++)
+    for (i = 0; i < (int)(sizeof(SIZENAME) / sizeof(char*)); i++)
     {
         cout << SIZENAME[i] << " == " << SIZE[i] << endl;
     }
