@@ -70,6 +70,7 @@ using namespace std;
  *
  *  整型转字符串
  *  string to_string(int num);                          str1 = to_string(num)       将num从整型转化为字符串型
+ *  char - '0';                                         int n = '6' - '0'           将字符类型的6转为整型的6
  *
  */
 
