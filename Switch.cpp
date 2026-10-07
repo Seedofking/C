@@ -25,5 +25,19 @@ int main(void)
         break;
     }
 
+    for (int i = 1; i <= 4; i++)
+    {
+        static int n = 1; //带有初始化的static变量只有在进循环的第一次重置为1
+        //n = 1;  如果加上这句，因为这是普通赋值语句，那这个static变量也会每次进循环都重置为1
+        int m = 1; //普通变量每次进循环都会重置为1
+
+        printf("n = %d\n", n);
+        printf("m = %d\n", m);
+
+        n++;
+        m++;
+    }
+
+
     return 0;
 }

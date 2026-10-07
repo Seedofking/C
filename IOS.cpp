@@ -135,7 +135,38 @@ int main()
     cout << "cin.good() = " << cin.good() << '\n';
     cout << "cin.fail() = " << cin.fail() << endl;
 
-    //
+    //小数点与科学计数法表示
+    double heng = 114514.1919810;
+    long long num = 12345678900000;
+
+    cout << "heng = " << heng << endl;
+    cout << fixed << setprecision(3) << "heng(f3) = " << heng << endl;
+    cout << fixed << setprecision(7) << "heng(f7) = " << heng << endl;
+
+    //需要手动清除fixed标记
+    cout << resetiosflags(ios::fixed) << setprecision(7) << "heng(7) = " << heng << endl;
+    cout << setiosflags(ios::scientific) << heng << endl;
+
+    cout << setiosflags(ios::scientific) << num << endl; //整数不会用科学计数
+
+    //格式输出右对齐矩阵
+    int n;
+    cout << "Enter the size of the Matric: " << endl;
+    cin >> n;
+
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            static int nnum = 1;
+            if (j < 10)
+            {
+                cout << "0" << '\n';
+            }
+            cout << nnum << '\n';
+            nnum++;
+        }
+    }
 
 
     system("pause");
