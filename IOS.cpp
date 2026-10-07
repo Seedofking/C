@@ -87,7 +87,7 @@ using namespace std;
  *  No.5 流状态重置
  *  流读到末尾后, 流会设置eof标志, 后续再>>读取会失效
  *  ss.clear(); 清除流的错误状态标志
- *  ss.str(""); 将流内部的
+ *  ss.str(""); 将流内部的字符重置为空
  *
  *  No.6
  *
@@ -154,19 +154,81 @@ int main()
     cout << "Enter the size of the Matric: " << endl;
     cin >> n;
 
+
     for (int i = 1; i <= n; i++)
     {
+        stringstream ss;
+        string s;
+
         for (int j = 1; j <= i; j++)
         {
             static int nnum = 1;
-            if (j < 10)
+            if (nnum < 10)
             {
-                cout << "0" << '\n';
+                ss << "0";
             }
-            cout << nnum << '\n';
+            ss << nnum;
             nnum++;
         }
+        s = ss.str(); //setw不能一次一次用，不然就相当于制表符，所以用字符流拼成一个字符串之后再输出
+        cout << right << setw(2 * n) << setfill('*') << s << endl; //setfill()要是字符'', 不setfill默认填空格
+        //right / left 来控制左右对齐，不设置默认右对齐
     }
+
+    //字符和整行输入
+    char c;
+    cout << "Enter a char: " << endl;
+
+    cin.ignore();
+    cin.get(c);
+
+    cout.put(c);
+    cout << endl;
+
+    string sas;
+
+    //重新利用ss前需要先清除eof标志位，再把里面的内容覆盖为空
+    ss.clear();
+    ss.str("");
+
+    cout << "Enter a line: " << endl;
+    cin.ignore();
+
+    getline(cin, sas);
+    ss << sas;
+
+    cout << "Enter a line: " << endl;
+    //前一个getline()会直接吃掉换行，不用cin.ignore
+
+    getline(cin, sas); //两个getline会直接覆盖sas的原有内容
+    ss << sas;
+
+    cout << sas << endl;
+    cout << ss.str() << endl; //使用字符流可以把多次getline拼在一起
+
+    //字符流实现字符串拼接和类型转换
+    stringstream da;
+    int a1, a2;
+    string st1;
+
+    cout << "Enter number1: " << endl;
+    cin >> a1;
+    cout << "Enter string: " << endl;
+    cin >> st1;
+    cout << "Enter number2: " << endl;
+    cin >> a2;
+
+    //使用字符流将整型的a1, a2和字符串st1拼在一起，并且把整形转为字符串
+    da << a1 << st1 << a2;
+    cout << da.str() << endl;
+
+    //使用字符流实现字符分割
+    stringstream db;
+    string td;
+
+    cin.ignore();
+    getline(cin, td);
+    db << td;
 
 
     system("pause");
