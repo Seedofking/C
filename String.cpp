@@ -62,7 +62,7 @@ using namespace std;
  *  1.string& insert(int pos, const char* s);           str1.insert(1, str2);       把str2插进str1
  *    string& insert(int pos, const string& str);
  *  2.string& insert(int pos, int n, char c);           str1.insert(2, 3, ‘c');     在str1的第3个字前插入3个c
- *  3.strint& erase(int pos, int n)                     str1.erase(1, 3);           删除从pos开始的n个字符
+ *  3.string& erase(int pos, int n)                     str1.erase(1, 3);           删除从pos开始的n个字符
  *
  *  string子串
  *  string substr(int pos, int n);                      str1.substr(2, 4);          返回从pos开始的n个字符组成的字符串
